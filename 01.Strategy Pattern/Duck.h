@@ -10,11 +10,13 @@ public:
 	{
 	public:
 		virtual void apply() = 0;
+		virtual ~IQuackBehavior() = default;
 	};
 	class IFlyBehavior
 	{
 	public:
 		virtual void apply() = 0;
+		virtual ~IFlyBehavior() = default;
 	};
 
 private:

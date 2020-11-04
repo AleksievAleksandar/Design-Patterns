@@ -2,7 +2,7 @@
 
 #include "Duck.h"
 
-void printBehavior(const Duck* duck)
+void printBehavior(Duck*& duck)
 {
 	duck->flying();
 	duck->quacking();
@@ -23,6 +23,13 @@ int main()
 
 	printBehavior(duck);
 	printBehavior(duckTwo);
+	
+	delete quackBehavior;
+	delete flyBehavior;
+	delete canNotFlyBehavior;
 
+	delete duck;
+	delete duckTwo;
+	
 	return 0;
 }

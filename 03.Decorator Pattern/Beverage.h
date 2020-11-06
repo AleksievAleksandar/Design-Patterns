@@ -37,7 +37,7 @@ public:
 		delete this->beverage;
 	}
 public:
-	double cost()
+	double cost() override
 	{
 		return this->beverage->cost() + 2.3;
 	}
@@ -56,7 +56,7 @@ public:
 		delete this->beverage;
 	}
 public:
-	double cost()
+	double cost() override
 	{
 		return this->beverage->cost() + 1.4;
 	}

@@ -6,32 +6,33 @@
 
 class Singleton
 {
-public:
-	int value;
 private:
 	static Singleton* singleton;
-
+public:
+	int value;
 private:
 	Singleton() = default;
 	Singleton(const Singleton& other) = delete;
 	~Singleton() = default;
-
 private:
-	Singleton operator=(const Singleton& other) = delete;
-
+	Singleton& operator=(const Singleton& other) = delete;
 public:
-	static Singleton* getSingleton()
+	static Singleton*& getSingleton()
 	{
-		if (singleton == nullptr)
+		if (Singleton::singleton == nullptr)
 		{
-			singleton = new Singleton();
+			Singleton::singleton = new Singleton();
 		}
-		return singleton;
+		return Singleton::singleton;
 	}
 
 	static void releaseMemory()
 	{
-		delete Singleton::singleton;
+		if (Singleton::singleton != nullptr)
+		{
+			delete Singleton::singleton;
+			Singleton::singleton = nullptr;
+		}
 	}
 
 	std::string getInfo() const
@@ -48,8 +49,13 @@ class SingletonDestroyer {
 public:
 	~SingletonDestroyer()
 	{ 
-		delete Singleton::singleton; 
+		if (Singleton::singleton != nullptr)
+		{
+			delete Singleton::singleton;
+			Singleton::singleton = nullptr;
+		}		
 	}
 };
 
 #endif // !SINGLETON_H
+

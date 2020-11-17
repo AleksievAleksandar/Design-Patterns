@@ -5,7 +5,7 @@
 
 int main()
 {
-	std::string book = " Plenty of Room at the Bottom";
+	std::string book = " Plenty of Room at the Bottom"; //huge book
 	BookParserProxy* bookProxy = new BookParserProxy(book);
 
 	std::cout << bookProxy->requestNumberOfWords();

@@ -42,7 +42,7 @@ public:
 	{
 		if (this->bookParser == nullptr)
 		{
-			this->bookParser = new BookParser(this->book);
+			this->bookParser = new BookParser(this->book); //expensive operation
 		}
 		return this->bookParser->requestNumberOfWords();
 	}

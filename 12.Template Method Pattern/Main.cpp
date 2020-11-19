@@ -3,7 +3,8 @@
 #include <string>
 #include <vector>
 
-#include "Extractor.h"
+#include "DigitExtractor.h"
+#include "CapitalLetterExtractor.h"
 
 void printResults(const std::vector<std::string>& result)
 {
@@ -16,6 +17,7 @@ void printResults(const std::vector<std::string>& result)
 int main()
 {
 	std::string text = "Hello 123 World 0";
+
 	std::vector<std::string> digitResult;
 	std::vector<std::string> capLettResult;
 

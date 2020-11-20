@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Graph.Representation.h"
+#include "GraphRepresentation.h"
 
 int main()
 {

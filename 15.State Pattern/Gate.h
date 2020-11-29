@@ -1,12 +1,14 @@
 #ifndef GATE_H
 #define GATE_H
 
+#include <iostream>
+
 struct IGateState
 {
-	//virtual void enter() = 0;
-	//virtual void pay() = 0;
+	virtual void enter() = 0;
 	virtual void payOK() = 0;
 	virtual void payFailed() = 0;
+
 	~IGateState() = default;
 };
 
@@ -29,6 +31,7 @@ public:
 		this->gate->changeState(this);
 	}
 	void payFailed() override;
+	void enter() override;
 };
 
 class ClosedGateState : public IGateState
@@ -46,9 +49,17 @@ public:
 	{
 		this->gate->changeState(this);
 	}
+	void enter() override
+	{
+		std::cout << "Pay first\n";
+	}
 };
 
 void OpenGateState::payFailed()
+{
+	this->gate->changeState(new ClosedGateState(gate));
+}
+void OpenGateState::enter()
 {
 	this->gate->changeState(new ClosedGateState(gate));
 }
@@ -76,6 +87,14 @@ public:
 	void payOK()
 	{
 		this->gateState->payOK();
+	}
+	void payFailed()
+	{
+		this->gateState->payFailed();
+	}
+	void enter()
+	{
+		this->gateState->enter();
 	}
 };
 

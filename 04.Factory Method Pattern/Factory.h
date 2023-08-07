@@ -19,17 +19,13 @@ public:
 		{
 		case 0:
 			return new Cat(5.7);
-			break;
 		case 1:
 			return new Dog(25.7);
-			break;
 		case 2:
 			return new Duck(1.2);
-			break;
 
 		default:
 			return new Animal();
-			break;
 		}		
 	}
 };
@@ -43,17 +39,13 @@ public:
 		{
 		case 0:
 			return new Earth(5.9);
-			break;
 		case 1:
 			return new Uranus(8.6);
-			break;
 		case 2:
 			return new Jupiter(1.9);
-			break;
 
 		default:
 			return new Planet();
-			break;
 		}
 	}
 };

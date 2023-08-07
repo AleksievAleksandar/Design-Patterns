@@ -26,17 +26,13 @@ public:
 		{
 		case 0:
 			return new Tiger(70);
-			break;
 		case 1:
 			return new Lion(65);
-			break;
 		case 2:
 			return new Puma(30);
-			break;
 
 		default:
 			return new Predator();
-			break;
 		}
 	}
 
@@ -48,17 +44,13 @@ public:
 		{
 		case 0:
 			return new Cow(270);
-			break;
 		case 1:
 			return new Horse(125);
-			break;
 		case 2:
 			return new Deer(40);
-			break;
 
 		default:
 			return new Herbivorous();
-			break;
 		}
 	}
 };

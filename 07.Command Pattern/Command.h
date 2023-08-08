@@ -7,7 +7,7 @@ struct ICommand
 {
 	virtual void execute() = 0;
 	virtual void unExecute() = 0;
-	~ICommand() = default;
+	virtual ~ICommand() = default;
 };
 
 class OnCommand : public ICommand
